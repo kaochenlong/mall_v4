@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#">購物車(<%= current_cart.items.count %>)</a>
+          <%= link_to "購物車(#{current_cart.items.count})", cart_path %>
         </li>
       </ul>
     </div>

@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>商品名稱</td>
+      <td>數量</td>
+      <td>售價</td>
+      <td>小計</td>
+    </tr>
+  </thead>
+  <tbody>
+<% cart.items.each do |item| %>
+    <tr>
+      <td><%= item.product.title %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.price %></td>
+      <td><%= item.total_price %></td>
+    </tr>
+<% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">總計</td>
+      <td><%= cart.total_price %></td>
+    </tr>
+  </tfoot>
+</table>
