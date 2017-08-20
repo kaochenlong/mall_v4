@@ -1,0 +1,29 @@
+<h1>商品列表</h1>
+
+<%= link_to "檢視購物車", cart_path, class: "btn btn-success" %>
+<%= link_to '新增商品', new_product_path, class: "btn btn-default btn-primary" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>商品名稱</td>
+      <td>售價</td>
+      <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td>
+        <%= link_to '放到購物車', add_cart_path(product.id), class: "btn btn-xs btn-danger", method: "post" %>
+        <%= product.title %>
+      </td>
+      <td><%= product.price %></td>
+      <td>
+        <%= link_to '編輯', edit_product_path(product), class: "btn btn-xs btn-default" %>
+        <%= link_to '刪除', product, method: "delete", data: { confirm: "確定刪除?" }, class: "btn btn-xs btn-default" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
