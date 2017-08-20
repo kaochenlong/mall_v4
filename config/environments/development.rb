@@ -52,3 +52,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+
+Braintree::Configuration.environment = :sandbox
+Braintree::Configuration.merchant_id = "jwb8xz5rcmwgrxx8"
+Braintree::Configuration.public_key = "qndpvm84vvq7x7f3"
+Braintree::Configuration.private_key = "6906095295a78fa7acd1dd01182dfc95"
+
