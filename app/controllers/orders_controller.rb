@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def create
-
     # 成立訂單
     order = Order.new
     current_cart.items.each do |item|
@@ -11,13 +10,10 @@ class OrdersController < ApplicationController
     order.save
 
     # 刷卡
-    result = Braintree::Transaction.sale(
-      :amount => current_cart.total_price,
-      :payment_method_nonce => params[:payment_method_nonce],
-      :options => {
-        :submit_for_settlement => true
-      }
-    )
+    payment = BraintreeService.new(params[:payment_method_nonce],
+                                            current_cart.total_price)
+
+    result = payment.run
 
     if result.success?
       order.pay!
