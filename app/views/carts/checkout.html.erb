@@ -2,9 +2,16 @@
 
 <%= render "cart", cart: current_cart %>
 
-<% form_for @order do |f| %>
+<%= simple_form_for @order do |f| %>
+  <%= f.fields_for :recipient do |recipient| %>
+    <%= recipient.input :name %>
+    <%= recipient.input :tel %>
+    <%= recipient.input :address %>
+    <%= recipient.input :email %>
 
+  <% end %>
+
+  <%= f.submit "確認送出!", class: "btn btn-danger" %>
 <% end %>
 
-
-
+<hr />
