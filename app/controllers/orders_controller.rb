@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
     order.save
 
     # 刷卡
+    #if 刷卡成功
+      #order.pay!
+    #end
+
     # 通知
     # 清空購物車
 
